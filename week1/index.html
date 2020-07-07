@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello Class</h1>
+
+<ul id='myUL'>
+    <li>I am empty</li>
+</ul>
+
+<button id='mybutton'>ClickMe</button>
+
+<script>
+    
+    function addHTML(){
+        
+        $("#myUL").append('<li>NOT EMPTY</li>')
+        $.get('https://pokeapi.co/api/v2/pokemon/ditto', function(data){console.log(data)})
+        //$.post('url',{formdata},cb,options)
+    }
+    
+    $('#mybutton').click(addHTML)
+    //$('#mybutton').click(addHTML)
+    
+</script>
+</body>
+</html>
+
