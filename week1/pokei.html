@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <title>Poki</title>
+</head>
+<body>
+
+    <table>
+        <th>Name</th>
+        <tr>
+            <td>Bob</td>
+        </tr>
+    </table>
+    <button>Click me to load api</button>
+    <script>
+
+        function getpoki(){
+            $('table').html('<th>Name</th>')
+            $.get('https://pokeapi.co/api/v2/pokemon/',function(data){
+                console.log(data.results)
+                addLotsofPoki(data.results)
+            })
+        }
+
+        function addPoki(poki,url){
+            console.log(poki,url)
+            $('table').append('<tr><td>'+ poki +'</td><td><img src="'+ url +'"></td></tr>')
+            
+            
+        }
+
+        function addLotsofPoki(list){
+            for(let i = 0; i < list.length; i++){
+                getpng(list[i].name,list[i].url)
+            }
+        }
+
+        function getpng(name,url){
+            console.log('in get png' , name,url)
+            $.get(url,function(data){
+                //console.log(data)
+                addPoki(name,data.sprites.front_default)
+
+            })
+        }
+
+        $('button').click(getpoki)
+    </script>
+    
+</body>
+</html>
