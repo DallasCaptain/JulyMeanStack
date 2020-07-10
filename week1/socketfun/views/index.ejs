@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <h1>HELOOOOOOOOOOO</h1>
+    <input id='name' type='text' name='name' placeholder="your name">
+    <button>Connect</button>
+    <script>
+        $('button').click(connect)
+        function connect(){
+            name = $('#name').val()
+            var socket = io();
+            socket.on('handshake', (data)=>{
+            console.log('data from handshake: ',data)
+            socket.emit('hello',{name: name, color:'red'})
+        })
+
+        socket.on('newuser', (data)=>{
+            console.log('server says:', data)
+            $('body').css('background-color',data.color)
+        })
+        }
+        
+    </script>
+</body>
+</html>

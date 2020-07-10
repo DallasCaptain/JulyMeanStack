@@ -20,7 +20,7 @@
 
         function getpoki(){
             $('table').html('<th>Name</th>')
-            $.get('https://pokeapi.co/api/v2/pokemon/',function(data){
+            $.get('https://pokeapi.co/api/v2/pokemon/?offset=0&limit=200',function(data){
                 console.log(data.results)
                 addLotsofPoki(data.results)
             })
