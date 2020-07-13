@@ -1,0 +1,19 @@
+<html>
+<body>
+    <h2>Here are all the users:</h2>
+    <% for (var user of users) { %>
+        <h3>Name: <%= user.name %></h3>
+        <h4>age: <%= user.age %></h4>
+        <h4>favShoe: <%= user.favShoe.name %></h4>
+        <hr>
+    <% } %>
+
+    <form action='/users' method='post'>
+        <input type="text" name='name' placeholder="Your Name">
+        <input type="text" name='age' placeholder="Your age">
+        <input type="submit" value="Submit">
+    </form>
+
+
+</body>
+</html>
