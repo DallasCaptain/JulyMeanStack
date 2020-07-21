@@ -1,20 +1,8 @@
 <h1>FormsMonday!</h1>
-{{newPizza |json}}
 
+<button [routerLink]="['/pizza']">Goto Pizza Menu</button>
+<button [routerLink]="['/burger']">Goto Burger Menu</button>
 
-<form (submit)='submitPizza()'>
-  <input type="text" name="name" [(ngModel)]="newPizza.name">
-  <input type="text" name="toppings" [(ngModel)]='tempToppings'>
-  <select name="price" [(ngModel)]='newPizza.price' >
-    <option value="23452345">1</option>
-    <option value="2">2</option>
-  </select>
-  <input type="checkbox" name="mycheck" id="" [(ngModel)]='newPizza.check'>
-  <input type="submit" value="Submit">
-</form>
-
-<app-pizza [pizza]='newPizza'></app-pizza>
-<app-pizza *ngFor='let pizza of pizzaList' [pizza]='pizza'></app-pizza>
-
+<hr>
 
 <router-outlet></router-outlet>

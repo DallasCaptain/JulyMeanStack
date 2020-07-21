@@ -1,0 +1,19 @@
+
+{{newPizza |json}}
+
+
+<form (submit)='submitPizza()'>
+  <input type="text" name="name" [(ngModel)]="newPizza.name">
+  <input type="text" name="toppings" [(ngModel)]='tempToppings'>
+  <select name="price" [(ngModel)]='newPizza.price' >
+    <option value="23452345">1</option>
+    <option value="2">2</option>
+  </select>
+  <input type="checkbox" name="mycheck" id="" [(ngModel)]='newPizza.check'>
+  <input type="submit" value="Submit">
+</form>
+
+
+<app-pizza *ngFor='let pizza of pizzaList' [pizza]='pizza'></app-pizza>
+
+<router-outlet></router-outlet>

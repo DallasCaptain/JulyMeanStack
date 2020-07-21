@@ -1,0 +1,16 @@
+
+<form (submit)='submitBurger()'>
+  <input type="text" name="name" [(ngModel)]="newburger.name">
+  <input type="text" name="toppings" [(ngModel)]='tempToppings'>
+  <select name="price" [(ngModel)]='newburger.price' >
+    <option value="23452345">1</option>
+    <option value="2">2</option>
+  </select>
+  <input type="checkbox" name="mycheck" id="" [(ngModel)]='newburger.check'>
+  <input type="submit" value="Submit">
+</form>
+
+
+<app-burger *ngFor='let burger of burgerList' [burger]='burger'></app-burger>
+
+<router-outlet></router-outlet>
